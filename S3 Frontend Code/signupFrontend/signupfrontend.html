@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="This is a starter project for a chatbot concierge application built on AWS.">
+    <meta name="author" content="Carly Jongeneel">
+
+    <title>Heroes on the Move</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- api gateway generated sdk -->
+    <script src="./assets/js/sdk/lib/axios/dist/axios.standalone.js"></script>
+    <script src="./assets/js/sdk/lib/CryptoJS/rollups/hmac-sha256.js"></script>
+    <script src="./assets/js/sdk/lib/CryptoJS/rollups/sha256.js"></script>
+    <script src="./assets/js/sdk/lib/CryptoJS/components/hmac.js"></script>
+    <script src="./assets/js/sdk/lib/CryptoJS/components/enc-base64.js"></script>
+    <script src="./assets/js/sdk/lib/url-template/url-template.js"></script>
+    <script src="./assets/js/sdk/lib/apiGatewayCore/sigV4Client.js"></script>
+    <script src="./assets/js/sdk/lib/apiGatewayCore/apiGatewayClient.js"></script>
+    <script src="./assets/js/sdk/lib/apiGatewayCore/simpleHttpClient.js"></script>
+    <script src="./assets/js/sdk/lib/apiGatewayCore/utils.js"></script>
+
+    <script src="./assets/js/sdk/apigClient.js"></script>
+
+    <script src="./assets/js/aws-sdk.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+    <style>
+    img {
+    margin: 10px;
+    }
+    button {
+        background-color: #3269EB;
+        border: none;
+        color: white;
+        padding: 5px 5px;
+        text-align: center;
+        font-size: 12px;
+        border-radius: 8px;
+    }
+    input[type=file]::file-selector-button{
+        background-color: #3269EB;
+        border: none;
+        color: white;
+        padding: 7px 7px;
+        text-align: center;
+        font-size: 12px;
+        border-radius: 8px;
+    }
+    .center{
+        margin: auto;
+        width: 50%;
+    }
+    .text{
+        margin: auto;
+        width: 95%;
+    }
+    .error {
+        color: red
+    }
+
+
+</style>
+
+  <body>
+<br>
+  <h1 class="center">Heroes on the Move</h1>
+  <div class="text">
+    <h3>Sign Up</h3>
+    <div class = 'signup'>
+        first name: <input type="text" class="firstname" placeholder="first name" id='firstname'/>
+         <p class="error" id="firstlbl">First name cannot be blank.</p>
+        last name: <input type="text" class="lastname" placeholder="last name" id='lastname'/>
+         <p class="error" id="lastlbl">Last name cannot be blank.</p>
+        home military base: <select name="text" class="base" id='base'>
+            <option value="Select">Please Select Home Base</option>
+            <option value="Fort Novosel">Fort Novosel</option>
+            <option value="Fort Huachuca">Fort Huachuca</option>
+            <option value="Fort Hunter Liggett">Fort Hunter Ligget</option>
+            <option value="Fort Irwin">Fort Irwin</option>
+            <option value="Fort Carson">Fort Carson</option>
+            <option value="Fort Eisenhower">Fort Eisenhower</option>
+            <option value="Fort Moore">Fort Moore</option>
+            <option value="Fort Stewart">Fort Stewart</option>
+            <option value="Fort Leavenworth">Fort Leavenworth</option>
+            <option value="Fort Riley">Fort Riley</option>
+            <option value="Fort Campbell">Fort Campbell</option>
+            <option value="Fort Knox">Fort Knox</option>
+            <option value="Fort Detrick">Fort Detrick</option>
+            <option value="Fort George G. Meade">Fort George G. Meade</option>
+            <option value="Fort Leonard Wood">Fort Leonard Wood</option>
+            <option value="Fort Drum">Fort Drum</option>
+            <option value="Fort Hamilton">Fort Hamilton</option>
+            <option value="Fort Liberty">Fort Liberty</option>
+            <option value="Fort Sill">Fort Sill</option>
+            <option value="Fort Bliss">Fort Bliss</option>
+            <option value="Fort Cavazos">Fort Cavazos</option>
+            <option value="Fort Belvoir">Fort Belvoir</option>
+            <option value="Fort Gregg-Adams">Fort Gregg-Adams</option>
+            <option value="Fort McCoy">Fort McCoy</option>
+        </select>
+        <p class="error" id="baselbl">Base must be selected.</p>
+        username: <input type="text" class="username" placeholder="username" id='username'/>
+        <p class="error" id="usernamelbl">Username already taken or invalid. Please select another username.</p>
+        password: <input type="text" class="password" placeholder="password" id='password' style="-webkit-text-security: circle;"/><br><br>
+        re-enter password: <input type="text" class="password" placeholder="password" id='password2' style="-webkit-text-security: circle;"/>
+        <p class="error" id="passwordlbl">Passwords must match and be at least one character long.</p>
+        <button type='button' id='signup'>Signup</button>
+    </div>
+    </div>
+
+
+    <script>
+
+      var sdk = apigClientFactory.newClient({});
+
+    </script>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- <script>window.jQuery || document.write('<script src="./assets/js/vendor/jquery.min.js"><\/script>')</script> -->
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <!-- chat js -->
+    <script src="./assets/js/signup_frontend.js"></script>
+  </body>
+</html>
